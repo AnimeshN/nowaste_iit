@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from swk.models import Tracksheet,Zones,SwkBubblePopulation,IitTracksheet
+from swk.models import Tracksheet,Zones,SwkBubblePopulation,IitTracksheet,IitbHostelDetails
 
 class newTracksheet(serializers.HyperlinkedModelSerializer):
     zone_id = serializers.CharField(source='zone_id_id')
@@ -25,6 +25,14 @@ class populationSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = SwkBubblePopulation
         fields = ("zone_id","bubble_id","bubble_population")
+
+
+
+class iitbpopulationSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = IitbHostelDetails
+        fields = "__all__"
+
 
 class iitTracksheet(serializers.HyperlinkedModelSerializer):
     # zone_id = serializers.CharField(source='zone_id_id')
