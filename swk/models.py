@@ -199,6 +199,8 @@ class IitTracksheet(models.Model):
     total_recyclable_wt = models.IntegerField()
     total_ewaste_wt = models.IntegerField()
     collection_date = models.DateField(blank=True, null=True)
+    total = models.IntegerField()
+
 
     class Meta:
         managed = False
@@ -209,8 +211,7 @@ class IitbHostelDetails(models.Model):
     id = models.IntegerField(primary_key=True)
     hostel_id = models.IntegerField(blank=True, null=True)
     hostel_name = models.CharField(max_length=30, blank=True, null=True)
-    hostel_population = models.CharField(max_length=30, blank=True, null=True)
-    wing = models.CharField(max_length=10, blank=True, null=True)
+    hostel_population = models.IntegerField(blank=True, null=True)
     description = models.CharField(max_length=50, blank=True, null=True)
     zone_id = models.IntegerField(blank=True, null=True)
     zone_name = models.CharField(max_length=20, blank=True, null=True)
