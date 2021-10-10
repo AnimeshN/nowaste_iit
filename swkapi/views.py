@@ -3,8 +3,10 @@ from django.shortcuts import render
 # Create your views here.
 from rest_framework import viewsets
 
-from .serializers import newTracksheet,populationSerializer
+from .serializers import newTracksheet,populationSerializer,iitTracksheet
 from swk.models import Tracksheet,SwkBubblePopulation
+
+from swk.models import IitTracksheet
 
 
 class tracksheetview(viewsets.ModelViewSet):
@@ -18,3 +20,8 @@ class tracksheetview(viewsets.ModelViewSet):
 class populationView(viewsets.ModelViewSet):
     queryset = SwkBubblePopulation.objects.all()
     serializer_class = populationSerializer
+    
+
+class iitbTrackSheetView(viewsets.ModelViewSet):
+    queryset = IitTracksheet.objects.all().order_by('id')
+    serializer_class = iitTracksheet

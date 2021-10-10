@@ -166,3 +166,69 @@ class SupervisorsList(models.Model):
     class Meta:
         managed = False
         db_table = 'swk_zone_supervisors'
+
+class IitTracksheet(models.Model):
+    id = models.IntegerField(primary_key=True)
+    hostel_name = models.CharField(max_length=30, blank=True, null=True)
+    hostel_id = models.IntegerField(blank=True, null=True)
+    floor = models.IntegerField(blank=True, null=True)
+    flat_no = models.IntegerField(blank=True, null=True)
+    wing = models.CharField(max_length=10, blank=True, null=True)
+    zone_id = models.IntegerField(blank=True, null=True)
+    zone_name = models.CharField(max_length=100, blank=True, null=True)
+    paper_cardboard_wt = models.IntegerField()
+    pressurised_cans_wt = models.IntegerField()
+    plastic_wt = models.IntegerField()
+    metals_wt = models.IntegerField()
+    glass_wt = models.IntegerField()
+    vege_fruits_wt = models.IntegerField()
+    cooked_tea_wt = models.IntegerField()
+    bones_leftovers = models.IntegerField()
+    egg_shells_wt = models.IntegerField()
+    flowers_leaves_wt = models.IntegerField()
+    sanitarywaste_wt = models.IntegerField()
+    compostible_bioplastic_wt = models.IntegerField()
+    dust_hair_lint = models.IntegerField()
+    ceramics = models.IntegerField()
+    used_battery_wt = models.IntegerField()
+    gadgets_wires_toys_wt = models.IntegerField()
+    appliances_laptop_mobile_wt = models.IntegerField()
+    total_kitchen_wt = models.IntegerField()
+    total_burnable_wt = models.IntegerField()
+    total_landfill_wt = models.IntegerField()
+    total_recyclable_wt = models.IntegerField()
+    total_ewaste_wt = models.IntegerField()
+    collection_date = models.DateField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'iit_tracksheet'
+
+
+class IitbHostelDetails(models.Model):
+    id = models.IntegerField(primary_key=True)
+    hostel_id = models.IntegerField(blank=True, null=True)
+    hostel_name = models.CharField(max_length=30, blank=True, null=True)
+    hostel_population = models.CharField(max_length=30, blank=True, null=True)
+    wing = models.CharField(max_length=10, blank=True, null=True)
+    description = models.CharField(max_length=50, blank=True, null=True)
+    zone_id = models.IntegerField(blank=True, null=True)
+    zone_name = models.CharField(max_length=20, blank=True, null=True)
+    geom = models.TextField(blank=True, null=True)  # This field type is a guess.
+
+    class Meta:
+        managed = False
+        db_table = 'iitb_hostel_details'
+
+
+class WasteType(models.Model):
+    category_id = models.CharField(max_length=100, blank=True, null=True)
+    cat_col_name = models.CharField(max_length=100, blank=True, null=True)
+    category = models.CharField(max_length=50, blank=True, null=True)
+    waste_type_id = models.CharField(max_length=100, blank=True, null=True)
+    waste_type = models.CharField(max_length=50, blank=True, null=True)
+    waste_type_col_name = models.CharField(max_length=30, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'waste_type'

@@ -5,6 +5,7 @@ from . import  views
 router = routers.DefaultRouter()
 router.register(r'trackid', views.tracksheetview)
 router.register(r'bubblepopulation', views.populationView)
+router.register(r'iitbtrackid', views.iitbTrackSheetView)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
